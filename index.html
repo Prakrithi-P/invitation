@@ -14,36 +14,36 @@
         h1, h2, h3, .serif-font {
             font-family: 'Playfair Display', serif;
         }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200">
 
-    <!-- HERO SECTION / VIDEO LANDING PAGE -->
-    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <!-- Background Video -->
+    <!-- HERO SECTION / PURE VIDEO -->
+    <header class="relative h-screen w-full overflow-hidden">
+        <!-- Background Video (No text or dark overlays!) -->
         <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-            <!-- Ensure your file in GitHub is exactly lowercase 'animation.mp4' -->
             <source src="animation.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
-        <!-- Dark Gradient Overlay for Readability -->
-        <div class="absolute inset-0 bg-black/40 z-10"></div>
-
-        <!-- Hero Content -->
-        <div class="relative z-20 text-center px-4 max-w-3xl text-white">
-            <p class="uppercase tracking-widest text-xs md:text-sm mb-3 font-light text-stone-200">You're Invited to the Wedding of</p>
-            <h1 class="text-5xl md:text-7xl font-normal mb-6 tracking-wide">Alex & Jordan</h1>
-            <p class="text-lg md:text-xl font-light mb-8 text-stone-100">October 12, 2026 • Brisbane, QLD</p>
-            
-            <a href="#details" class="inline-block border border-white/80 hover:bg-white hover:text-stone-900 transition-all duration-300 px-8 py-3 rounded-full text-sm uppercase tracking-widest font-medium">
-                View Details & RSVP
-            </a>
-        </div>
     </header>
 
+    <!-- INTRO SECTION (Text moved here!) -->
+    <section class="py-24 px-6 text-center max-w-4xl mx-auto bg-stone-50">
+        <p class="uppercase tracking-widest text-xs md:text-sm mb-4 font-light text-stone-500">You're Invited to the Wedding of</p>
+        <h1 class="text-5xl md:text-7xl font-normal mb-6 tracking-wide text-stone-900">Alex & Jordan</h1>
+        <p class="text-lg md:text-xl font-light mb-10 text-stone-600">October 12, 2026 • Brisbane, QLD</p>
+        
+        <a href="#details" class="inline-block border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 px-8 py-3 rounded-full text-sm uppercase tracking-widest font-medium">
+            View Details & RSVP
+        </a>
+    </section>
+
     <!-- LOGISTICAL INFO SECTION -->
-    <section id="details" class="py-24 px-6 max-w-5xl mx-auto">
+    <section id="details" class="py-16 px-6 max-w-5xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-normal mb-3 text-stone-900">The Celebration</h2>
             <div class="w-12 h-[1px] bg-stone-300 mx-auto"></div>
@@ -91,7 +91,7 @@
     </section>
 
     <!-- RSVP SECTION (Embedded Google Form) -->
-    <section id="rsvp" class="bg-stone-100 py-24 px-6">
+    <section id="rsvp" class="bg-stone-100 py-24 px-6 mt-12">
         <div class="max-w-4xl mx-auto bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-stone-200">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-normal mb-2 text-stone-900">Will You Join Us?</h2>
