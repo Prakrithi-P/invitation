@@ -10,48 +10,98 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fafaf9; /* Tailwind stone-50 */
         }
         h1, h2, h3, .serif-font {
             font-family: 'Playfair Display', serif;
         }
-        /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
+
+        /* --- BACKGROUND SLIDESHOW CSS --- */
+        .bg-slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keeps it behind all the text */
+            background-color: #fafaf9;
+        }
+        .bg-slideshow .slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 18s infinite;
+        }
+        
+        /* REPLACE THESE URLS WITH YOUR OWN IMAGES (e.g., url('pic1.jpg') ) */
+        .bg-slideshow .slide:nth-child(1) {
+            background-image: url('pic1.JPG');
+            animation-delay: 0s;
+        }
+        .bg-slideshow .slide:nth-child(2) {
+            background-image: url('pic2.JPG');
+            animation-delay: 6s;
+        }
+        .bg-slideshow .slide:nth-child(3) {
+            background-image: url('pic3.JPG');
+            animation-delay: 12s;
+        }
+
+        /* This animation handles the fading and the transparency level */
+        @keyframes fade {
+            0% { opacity: 0; }
+            15% { opacity: 0.25; } /* 0.25 means 25% transparent */
+            25% { opacity: 0.25; }
+            40% { opacity: 0; }
+            100% { opacity: 0; }
+        }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200">
+<body class="text-stone-800 antialiased selection:bg-stone-200 relative">
+
+    <!-- FADING BACKGROUND IMAGES -->
+    <div class="bg-slideshow">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
 
     <!-- HERO SECTION / PURE VIDEO -->
-    <header class="relative h-screen w-full overflow-hidden">
-        <!-- Background Video (No text or dark overlays!) -->
+    <!-- Added bg-black so the slideshow doesn't show behind the video while loading -->
+    <header class="relative h-screen w-full overflow-hidden bg-black z-10 shadow-xl">
         <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
             <source src="animation.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </header>
 
-    <!-- INTRO SECTION (Text moved here!) -->
-    <section class="py-24 px-6 text-center max-w-4xl mx-auto bg-stone-50">
-        <p class="uppercase tracking-widest text-xs md:text-sm mb-4 font-light text-stone-500">You're Invited to the Wedding of</p>
-        <h1 class="text-5xl md:text-7xl font-normal mb-6 tracking-wide text-stone-900">Alex & Jordan</h1>
-        <p class="text-lg md:text-xl font-light mb-10 text-stone-600">October 12, 2026 • Brisbane, QLD</p>
+    <!-- INTRO SECTION -->
+    <section class="py-24 px-6 text-center max-w-4xl mx-auto relative z-10">
+        <p class="uppercase tracking-widest text-xs md:text-sm mb-4 font-semibold text-stone-500">You're Invited to the Wedding of</p>
+        <h1 class="text-5xl md:text-7xl font-normal mb-6 tracking-wide text-stone-900 drop-shadow-sm">Alex & Jordan</h1>
+        <p class="text-lg md:text-xl font-medium mb-10 text-stone-700">October 12, 2026 • Brisbane, QLD</p>
         
-        <a href="#details" class="inline-block border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white transition-all duration-300 px-8 py-3 rounded-full text-sm uppercase tracking-widest font-medium">
+        <!-- Blurred background on the button so it stands out against photos -->
+        <a href="#details" class="inline-block border border-stone-900 text-stone-900 hover:bg-stone-900 hover:text-white backdrop-blur-sm bg-white/30 transition-all duration-300 px-8 py-3 rounded-full text-sm uppercase tracking-widest font-bold shadow-sm">
             View Details & RSVP
         </a>
     </section>
 
     <!-- LOGISTICAL INFO SECTION -->
-    <section id="details" class="py-16 px-6 max-w-5xl mx-auto">
+    <section id="details" class="py-16 px-6 max-w-5xl mx-auto relative z-10">
         <div class="text-center mb-16">
             <h2 class="text-3xl md:text-4xl font-normal mb-3 text-stone-900">The Celebration</h2>
-            <div class="w-12 h-[1px] bg-stone-300 mx-auto"></div>
+            <div class="w-12 h-[1px] bg-stone-400 mx-auto"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <!-- Timetable -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+            <!-- Timetable (Solid white background so it floats nicely) -->
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-stone-100">
                 <div class="text-stone-400 mb-4">
                     <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
@@ -64,7 +114,7 @@
             </div>
 
             <!-- Location -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-stone-100">
                 <div class="text-stone-400 mb-4">
                     <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                 </div>
@@ -77,7 +127,7 @@
             </div>
 
             <!-- Dress Code -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-stone-100">
                 <div class="text-stone-400 mb-4">
                     <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
                 </div>
@@ -90,12 +140,12 @@
         </div>
     </section>
 
-    <!-- RSVP SECTION (Embedded Google Form) -->
-    <section id="rsvp" class="bg-stone-100 py-24 px-6 mt-12">
-        <div class="max-w-4xl mx-auto bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-stone-200">
+    <!-- RSVP SECTION -->
+    <section id="rsvp" class="py-24 px-6 mt-12 relative z-10">
+        <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md p-4 md:p-8 rounded-3xl shadow-xl border border-stone-100">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-normal mb-2 text-stone-900">Will You Join Us?</h2>
-                <p class="text-sm text-stone-500 font-light">Please respond below by September 1, 2026</p>
+                <p class="text-sm text-stone-500 font-medium">Please respond below by September 1, 2026</p>
             </div>
 
             <!-- Embedded Google Form iframe -->
@@ -114,7 +164,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 text-center text-xs text-stone-400 font-light">
+    <footer class="py-12 text-center text-xs text-stone-500 font-semibold relative z-10">
         <p>Alex & Jordan • 2026</p>
     </footer>
 
