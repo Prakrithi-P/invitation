@@ -22,7 +22,6 @@
     <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
         <!-- Background Video -->
         <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-            <!-- Replace 'your-video-file.mp4' with your actual video file name or hosted URL -->
             <source src="animation.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -98,23 +97,17 @@
                 <p class="text-sm text-stone-500 font-light">Please respond by September 1, 2026</p>
             </div>
 
-            <!-- 
-              HOW TO HOOK UP GOOGLE FORMS:
-              1. Create a Google Form with fields: Name, Attendance (Attending/Declining), Dietary Requirements.
-              2. Inspect your Google Form, find the form's `action` URL (ends with /formResponse), 
-                 and the `entry.xxxxxx` IDs for your form fields.
-              3. Replace the action URL below and input name attributes accordingly.
-            -->
-            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdQCXD-Nfr3pnRi5wNGHS3SDEETxZ10QEx6D4GIfUKp4tjSzw/viewform?usp=header" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+            <!-- FIXED ACTION URL ENDING IN /formResponse -->
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSdQCXD-Nfr3pnRi5wNGHS3SDEETxZ10QEx6D4GIfUKp4tjSzw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
                 
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Full Name(s)</label>
-                    <input type="text" name="entry.YOUR_NAME_ENTRY_ID" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
+                    <input type="text" name="entry.12345678" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
                 </div>
 
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Response</label>
-                    <select name="entry.YOUR_ATTENDANCE_ENTRY_ID" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
+                    <select name="entry.87654321" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
                         <option value="" disabled selected>Please select an option</option>
                         <option value="Accepts with pleasure">Accepts with pleasure</option>
                         <option value="Declines with regret">Declines with regret</option>
@@ -123,7 +116,7 @@
 
                 <div>
                     <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Dietary Requirements / Notes</label>
-                    <textarea name="entry.YOUR_DIETARY_ENTRY_ID" rows="3" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors"></textarea>
+                    <textarea name="entry.11223344" rows="3" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors"></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-medium py-3.5 rounded-xl transition-all uppercase tracking-widest text-xs">
