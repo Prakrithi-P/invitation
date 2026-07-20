@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200">
+
+    <!-- HERO SECTION / VIDEO LANDING PAGE -->
+    <header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <!-- Replace 'your-video-file.mp4' with your actual video file name or hosted URL -->
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Dark Gradient Overlay for Readability -->
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-20 text-center px-4 max-w-3xl text-white">
+            <p class="uppercase tracking-widest text-xs md:text-sm mb-3 font-light text-stone-200">You're Invited to the Wedding of</p>
+            <h1 class="text-5xl md:text-7xl font-normal mb-6 tracking-wide">Alex & Jordan</h1>
+            <p class="text-lg md:text-xl font-light mb-8 text-stone-100">October 12, 2026 • Brisbane, QLD</p>
+            
+            <a href="#details" class="inline-block border border-white/80 hover:bg-white hover:text-stone-900 transition-all duration-300 px-8 py-3 rounded-full text-sm uppercase tracking-widest font-medium">
+                View Details & RSVP
+            </a>
+        </div>
+    </header>
+
+    <!-- LOGISTICAL INFO SECTION -->
+    <section id="details" class="py-24 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-normal mb-3 text-stone-900">The Celebration</h2>
+            <div class="w-12 h-[1px] bg-stone-300 mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <!-- Timetable -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                <div class="text-stone-400 mb-4">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-stone-900">Timetable</h3>
+                <ul class="space-y-3 text-sm text-stone-600 font-light">
+                    <li><strong class="font-medium text-stone-800">3:30 PM</strong> — Guest Arrival</li>
+                    <li><strong class="font-medium text-stone-800">4:00 PM</strong> — Ceremony Begins</li>
+                    <li><strong class="font-medium text-stone-800">5:30 PM</strong> — Cocktail Hour & Reception</li>
+                </ul>
+            </div>
+
+            <!-- Location -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                <div class="text-stone-400 mb-4">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-stone-900">Location</h3>
+                <p class="text-sm text-stone-600 font-light leading-relaxed">
+                    The Registry & Homestead Gardens<br>
+                    Brisbane Botanic Gardens<br>
+                    Mount Coot-tha QLD 4066
+                </p>
+            </div>
+
+            <!-- Dress Code -->
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                <div class="text-stone-400 mb-4">
+                    <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-stone-900">Dress Code</h3>
+                <p class="text-sm text-stone-600 font-light leading-relaxed">
+                    Formal / Cocktail Attire.<br>
+                    We kindly suggest jewel tones or neutral earth tones. Note that parts of the reception are on grass.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP SECTION (Google Forms Integration) -->
+    <section id="rsvp" class="bg-stone-100 py-24 px-6">
+        <div class="max-w-xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-stone-200">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-normal mb-2 text-stone-900">Will You Join Us?</h2>
+                <p class="text-sm text-stone-500 font-light">Please respond by September 1, 2026</p>
+            </div>
+
+            <!-- 
+              HOW TO HOOK UP GOOGLE FORMS:
+              1. Create a Google Form with fields: Name, Attendance (Attending/Declining), Dietary Requirements.
+              2. Inspect your Google Form, find the form's `action` URL (ends with /formResponse), 
+                 and the `entry.xxxxxx` IDs for your form fields.
+              3. Replace the action URL below and input name attributes accordingly.
+            -->
+            <form action="YOUR_GOOGLE_FORM_ACTION_URL_HERE" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="space-y-6">
+                
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Full Name(s)</label>
+                    <input type="text" name="entry.YOUR_NAME_ENTRY_ID" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Response</label>
+                    <select name="entry.YOUR_ATTENDANCE_ENTRY_ID" required class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors">
+                        <option value="" disabled selected>Please select an option</option>
+                        <option value="Accepts with pleasure">Accepts with pleasure</option>
+                        <option value="Declines with regret">Declines with regret</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-stone-600 font-medium mb-2">Dietary Requirements / Notes</label>
+                    <textarea name="entry.YOUR_DIETARY_ENTRY_ID" rows="3" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-4 py-3 text-stone-800 focus:outline-none focus:border-stone-400 transition-colors"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-medium py-3.5 rounded-xl transition-all uppercase tracking-widest text-xs">
+                    Send RSVP
+                </button>
+            </form>
+
+            <!-- Hidden iframe to prevent Google Forms from redirecting the user away from your page -->
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('Thank you! Your RSVP has been recorded.'); window.location.reload();}"></iframe>
+            <script>let submitted = false;</script>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 text-center text-xs text-stone-400 font-light">
+        <p>Alex & Jordan • 2026</p>
+    </footer>
+
+</body>
+</html>
