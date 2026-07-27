@@ -296,7 +296,7 @@
 
         video.addEventListener('timeupdate', () => {
             if (video.duration) {
-                const showTime = video.duration * 0.55;
+                const showTime = video.duration * 0.60;
                 if (video.currentTime >= showTime) {
                     scrollArrow.classList.remove('opacity-0', 'pointer-events-none');
                     scrollArrow.classList.add('opacity-100', 'pointer-events-auto');
