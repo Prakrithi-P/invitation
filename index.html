@@ -12,7 +12,6 @@
     <meta property="og:title" content="Our Wedding | Sharat & Prakrithi">
     <meta property="og:description" content="We would love to have you at our wedding! Please see our website for the invitation and details.">
    
-    
     <!-- Pro-Tip: Add a thumbnail image for WhatsApp/iMessage! -->
     <meta property="og:image" content="https://prakrithi-p.github.io/invitation/pic5.JPG">
     <meta property="og:url" content="https://prakrithi-p.github.io/invitation/">
@@ -121,8 +120,9 @@
             </div>
             
         </button>
-        <!-- BOUNCING SCROLL ARROW -->
-        <a href="#intro" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 text-white/80 hover:text-white transition-colors animate-bounce flex flex-col items-center cursor-pointer drop-shadow-md" aria-label="Scroll Down">
+        
+        <!-- BOUNCING SCROLL ARROW (Hidden Initially) -->
+        <a id="scrollArrow" href="#intro" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 text-white/80 hover:text-white animate-bounce flex flex-col items-center cursor-pointer drop-shadow-md opacity-0 pointer-events-none transition-opacity duration-1000" aria-label="Scroll Down">
             <span class="text-[10px] tracking-widest font-semibold uppercase mb-1 drop-shadow-md">Scroll</span>
             <svg class="w-6 h-6 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -260,7 +260,7 @@
         <p>Sharat & Prakrithi • 2026</p>
     </footer>
 
-    <!-- JAVASCRIPT TO MAKE THE AUDIO BUTTON WORK -->
+    <!-- JAVASCRIPT -->
     <script>
         const video = document.getElementById('bgVideo');
         const muteBtn = document.getElementById('muteBtn');
@@ -274,22 +274,33 @@
             });
         });
 
+        // Mute/Unmute logic
         muteBtn.addEventListener('click', () => {
-            // If the video got paused by the browser, hitting this button will play it!
             if (video.paused) {
                 video.play();
             }
 
             if (video.muted) {
-                // Turn sound ON
                 video.muted = false;
                 iconMuted.classList.add('hidden');
                 iconUnmuted.classList.remove('hidden');
             } else {
-                // Turn sound OFF
                 video.muted = true;
                 iconUnmuted.classList.add('hidden');
                 iconMuted.classList.remove('hidden');
+            }
+        });
+
+        // Show scroll arrow during the last 25% of the video
+        const scrollArrow = document.getElementById('scrollArrow');
+
+        video.addEventListener('timeupdate', () => {
+            if (video.duration) {
+                const showTime = video.duration * 0.75;
+                if (video.currentTime >= showTime) {
+                    scrollArrow.classList.remove('opacity-0', 'pointer-events-none');
+                    scrollArrow.classList.add('opacity-100', 'pointer-events-auto');
+                }
             }
         });
     </script>
